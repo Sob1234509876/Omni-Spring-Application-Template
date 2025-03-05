@@ -7,7 +7,7 @@ import top.sob.xxx.spring.service.XXXServiceImpl;
 
 @Configuration
 public class XXXServiceConfiguration {
-    @Bean("service")
+    @Bean("xxxService")
     public XXXService getService() {
         return new XXXServiceImpl();
     }

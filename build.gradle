@@ -20,18 +20,22 @@ dependencies {
     testImplementation libs.junit.jupiter
 
     implementation libs.spring.boot.web, libs.spring.boot.data.jdbc, libs.spring.boot.data.redis
-    implementation libs.spring.cloud.openfeign
+    implementation libs.spring.mybatis, libs.spring.cloud.openfeign
 
-    implementation libs.mysql, libs.druid, libs.pool
+    implementation libs.lombok, libs.mysql, libs.druid, libs.pool
+
+    implementation libs.jannotations
+
+    annotationProcessor libs.lombok
 }
 
 application {
-    mainClass = "${group}.${name}.Main"
+    mainClass = 'top.sob.xxx.Main'
 }
 
 jar {
     manifest {
-        attributes 'Main-Class': "${group}.${name}.Main"
+        attributes 'Main-Class': 'top.sob.xxx.Main'
     }
 }
 
@@ -43,6 +47,10 @@ publishing {
     publications {
         xxx(MavenPublication) {
             from components.java
+
+            groupId = 'top.sob'
+            artifactId = 'xxx'
+            version = '1.0a'
         }
     }
 }
